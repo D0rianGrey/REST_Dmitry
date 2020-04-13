@@ -1,17 +1,19 @@
 package com.herokuapp.restfulbooker;
 
+import com.herokuapp.restfulbooking.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class GetBookingTestGet {
+public class GetBookingTestWithOutGet extends BaseTest {
 
     @Test
-    public void getBookingTest() {
+    public void getBookingTest(){
+
         //Get response with booking
-        Response response = RestAssured.get("https://restful-booker.herokuapp.com/booking/1");
+        Response response = RestAssured.given(spec).get("/booking/1");
         response.print();
 
         //Verify response 200
